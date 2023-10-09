@@ -1,0 +1,60 @@
+
+body {
+    background-color: black;
+    font-family: 'BOLTIZ', sans-serif;
+}
+
+h1 {
+    text-align: center;
+    font-weight: bold;
+    font-size: 60px;
+    border-radius: 100px;
+}
+
+button {
+    margin: 2px solid;
+    background-color: black;
+    padding: 10px 50px;
+    font-family: 'BOLTIZ', sans-serif
+}
+
+.red {
+    color: yellow;
+}
+
+.grey {
+    color: grey;
+}
+
+.white {
+    color: white;
+}
+
+.text {
+    color: red;
+    text-align: center;
+    font-size: 40px;
+}
+
+.buttons {
+    display: flex;
+    justify-content: space-around;
+    padding: 50px;
+}
+
+
+.rock {
+    color: grey;
+    border-color: grey;
+    font-size: 40px;
+}
+.paper {
+    color: white;
+    border-color: white;
+    font-size: 40px;
+}
+.scissors {
+    color: yellow;
+    border-color: yellow;
+    font-size: 40px;
+}

@@ -1,17 +1,6 @@
 const computerChoice = getComputerChoice()
-let userChoice = prompt("What do you choose")
 let computerScore = 0
 let userScore = 0
-
-if (userChoice.toLowerCase() === 'rock') {
-  userChoice = 'rock'
-} else if (userChoice.toLowerCase() === 'paper') {
-  userChoice = 'paper'
-} else if (userChoice.toLowerCase() === 'scissors') {
-  userChoice = 'scissors'
-} else {
-  userChoice = prompt("Seems like something was wrong. Try to type it again").toLowerCase()
-}
 
 function getComputerChoice () {
     let randomNumber = Math.floor(Math.random() * 3)
@@ -25,40 +14,51 @@ function getComputerChoice () {
     }
 };
 
-while ((userScore !== 3) && (computerScore !== 3)) {
-  function game() {
-    if (computerChoice === userChoice) 
-      return "it's a tie";
-    else if (
-     (computerChoice === 'rock' && userChoice === 'scissors') ||
-     (computerChoice === 'scissors' && userChoice === 'paper') || 
-     (computerChoice === 'rock' && userChoice === 'scissors')
-     ) {
-      computerScore = computerScore + 1 
-      return "computer won";
-    } else {
-      userScore = userScore + 1
-      return 'user won';
-    };}
-  };
+function game() {
+  if (computerChoice === userChoice) 
+    return "tie";
+  else if (
+ (computerChoice === 'rock' && userChoice === 'scissors') ||
+ (computerChoice === 'scissors' && userChoice === 'paper') || 
+ (computerChoice === 'rock' && userChoice === 'scissors')
+ ) {
+  computerScore = computerScore + 1 
+  return "computer won";
+} else {
+  userScore = userScore + 1
+  return 'user won';
+}}
 
-if ((userScore === 3) || (computerScore === 3)) {
-  console.log('The game is over')
+function endgame() {
   if (userScore === 3) {
-    console.log('You won!')
-  }
-  if (computerScore === 3) {
-    console.log('You lost!')
-  }
-} else if ((userScore !== 3) && (computerScore !== 3)){
-  
-}
+  return 'user won the game!';
+} else if (computerScore === 3) {
+  return 'computer won the game!';
+} else {
+  return '';
+}}
 
-let score = computerScore + '-' + userScore
-
+function whole() {
+  let userChoice;
+  weaponsButtons.foreach((weapon) => {
+    weapon.addEventListener('click', () => {
+      if (weapon.classList.contains('rock')) {
+      userChoice = 'rock'
+      } else if (weapon.classList.contains('paper')) {
+      userChoice = 'paper'
+      } else {
+      userChoice = 'scissors'
+    }
+    game()
+    endgame()
+    })
+  })
+} 
 console.log(computerChoice)
 console.log(userChoice)
-console.log(game)
+console.log(game())
 console.log(computerScore)
 console.log(userScore)
-console.log(score)
+document.getElementById('userscore').innerHTML = userScore;
+document.getElementById('computerscore').innerHTML = computerScore;
+document.getElementById('roundresult').innerHTML = game()
